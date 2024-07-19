@@ -8,9 +8,39 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
+
 """
 
 from pathlib import Path
+import os
+
+#settings.py
+STATIC_URL = 'static/'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#settings.py
+
+BASE_DIR = 'expensetracker'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'expensetracker/public/static/css'
+
+
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
+STATICFILES_DIR = {
+    os.path.join(BASE_DIR , "public/static")
+}
+
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,7 +107,7 @@ WSGI_APPLICATION = 'expensetracker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'geeksforgeeks',
+        'NAME': 'expense',
         'USER': 'root',
         'PASSWORD': '',
         'HOST':'127.0.0.1',
@@ -119,9 +149,4 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
